@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Registration Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            a{
+                text-decoration: none;
+            }
+            h1{
+                text-align: center;
+                background-color: wheat;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Registration Form</h1>
+        <center>
+            <form>
+                    Full Name <input type="text" onsubmit="name()" placeholder="Enter Your Name" id="name">
+                <h4>Full Name <input type="text" onsubmit="name()" placeholder="Enter Your Name" id="name"></h4>
+                <h4>Mobile Number <input type="tel" placeholder="Enter Your Mobile" id="mob"></h4>
+                <h4>Password <input type="password" placeholder="Enter Password" id="pass"></h4>
+                <h4>Retype Password <input type="password" placeholder="Enter Password Again" id="pass"></h4>
+                <h4>Course Intrested <select>
+                    <option value="select course">Select Course</option>
+                    <option value="java">Java</option>
+                    <option value="datascience">Data Science</option>
+                    <option value="python">Python</option>
+                    <option value="full stack">Full Stack</option>
+                </select></h4>
+                <h4>Gender <input type="radio" name="gender">Male
+                        <input type="radio" name="gender">Female </h4>
+                <input type="checkbox" name="agree" value="agree"> <a href="#">Aggred to Terms and Condition</a>
+                <br><br>
+                <input type="submit" value="Sign Up"> &nbsp; <input type="reset" value="Reset">   
+            </form>
+        </center>
+        
+        
+        <script>
+        
+        if(localStorage.getItem('names')){
+         document.getElementById('name').innerHTML=localStorage.getItem('names');
+        }
+        else
+        {
+          localStorage.setItem('names',0);
+        }
+        
+        var names=localStorage.getItem('names');
+
+        console.log(typeof names);
+
+        function name(){
+            names=names;
+            document.getElementById('name').innerHTML=names;
+            localStorage.setItem('names',names);
+
+        }
+       
+
+   </script>
+        
+    </body>
+</html>
