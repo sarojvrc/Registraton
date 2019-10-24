@@ -1,66 +1,54 @@
 <html>
     <head>
-        <title>Registration Page</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <style>
-            a{
-                text-decoration: none;
-            }
-            h1{
-                text-align: center;
-                background-color: wheat;
-            }
-        </style>
+        <title> Registration Form</title>
     </head>
     <body>
-        <h1>Registration Form</h1>
         <center>
-            <form>
-                    Full Name <input type="text" onsubmit="name()" placeholder="Enter Your Name" id="name">
-                <h4>Full Name <input type="text" onsubmit="name()" placeholder="Enter Your Name" id="name"></h4>
-                <h4>Mobile Number <input type="tel" placeholder="Enter Your Mobile" id="mob"></h4>
-                <h4>Password <input type="password" placeholder="Enter Password" id="pass"></h4>
-                <h4>Retype Password <input type="password" placeholder="Enter Password Again" id="pass"></h4>
-                <h4>Course Intrested <select>
-                    <option value="select course">Select Course</option>
-                    <option value="java">Java</option>
-                    <option value="datascience">Data Science</option>
-                    <option value="python">Python</option>
-                    <option value="full stack">Full Stack</option>
-                </select></h4>
-                <h4>Gender <input type="radio" name="gender">Male
-                        <input type="radio" name="gender">Female </h4>
-                <input type="checkbox" name="agree" value="agree"> <a href="#">Aggred to Terms and Condition</a>
-                <br><br>
-                <input type="submit" value="Sign Up"> &nbsp; <input type="reset" value="Reset">   
+            <h1>User Registration Form</h1>
+            <br>
+            <form> 
+                     Name: <input id="username" type="text" placeholder="Enter Your Name" value=""/><br><br>
+                     E-mail:<input id="email" type="email" placeholder="Enter Email" value=""><br><br>
+                     Mobile Number:<input id="mobile" type="tel" placeholder="Enter Mobile" value=""><br><br>
+                     Password: <input id="password" type="password" placeholder="Give a Password" value=""/><br><br>
+                     Course Applied For:<select id="course" name="course" value="">
+                         <option>Select Course</option>
+                         <option>Java</option>
+                         <option>Python</option>
+                         <option>Angular</option>
+                         <option>Full Stack</option>
+                         <option>DevOps</option>
+                         <option>Django</option>
+                     </select><br><br>
+                     City:<select id="city" name="city" value="">
+                            <option>Select City</option>
+                            <option>Bhubaneswar</option>
+                            <option>Bangalore</option>
+                            <option>Hyderabad</option>
+                            <option>Cuttack</option>
+                            <option>Delhi</option>
+                            <option>NewYork</option>
+                        </select><br><br>
+                    <input id="botton" onClick="save()" type="submit" value="Get Course Details" /> 
             </form>
-        </center>
-        
-        
+        </center>   
         <script>
-        
-        if(localStorage.getItem('names')){
-         document.getElementById('name').innerHTML=localStorage.getItem('names');
-        }
-        else
-        {
-          localStorage.setItem('names',0);
-        }
-        
-        var names=localStorage.getItem('names');
+            var username=document.getElementById('username');
+            var useremail=document.getElementById('email');
+            var usermobile=document.getElementById('mobile');
+            var userpassword = document.getElementById('password');
+            var usercourse=document.getElementById('course');
+            var usercity=document.getElementById('city');
+            function save() {
+            localStorage.setItem('username', username.value);
+            localStorage.setItem('useremail', useremail.value);
+            localStorage.setItem('usermobile', usermobile.value);
+            localStorage.setItem('userpassword', userpassword.value);
+            localStorage.setItem('usercourse', usercourse.value);
+            localStorage.setItem('usercity', usercity.value);
+            }   
+        </script>       
 
-        console.log(typeof names);
-
-        function name(){
-            names=names;
-            document.getElementById('name').innerHTML=names;
-            localStorage.setItem('names',names);
-
-        }
-       
-
-   </script>
         
     </body>
 </html>
